@@ -12,6 +12,8 @@ npm install
 npm start
 ```
 
+It will generate a JSON file with the tree of the analyzed Lua script.
+
 ## License
 
 The MIT License (MIT)
