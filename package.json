@@ -1,0 +1,20 @@
+{
+  "name": "LuaJSInterpreter-parser",
+  "version": "1.0.0",
+  "description":"The parser part of an interpreter of Lua written in Javascript",
+  "private": true,
+  "scripts": {
+    "start": "node parser.js test.lua"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MircoT/LuaJSInterpreter-parser"
+  },
+  "dependencies": {
+    "underscore": ">=1.6.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
