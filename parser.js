@@ -647,7 +647,7 @@ var ParserModule = function(){
                              CheckToken(_.first(tokens, 2)[1], TYPES.operator, "(")){
                                 tmp = Eat_elm(tokens);  // Eat function name
                                 exp = Explist(tokens);
-                                //console.log("explist", exp);
+                                // console.log("explist", exp);
                                 tmp.left = exp;
                                 root.right = tmp;
                     }
@@ -1004,14 +1004,22 @@ if (typeof exports !== 'undefined') {
 }
 
 if(process.argv.length > 2){
-    var fs = require('fs');
-    var luaText = process.argv[2];
+    var fs = require('fs'),
+        luaText = process.argv[2],
+        filename;
+    if(luaText.split(".lua").length === 1){
+        console.log("Error: arg is not a lua file...");
+        return;
+    }
+    else{
+        filename = luaText.split(".lua")[0];
+    }
     var lex = new ParserModule.Parser();
     if(fs.existsSync(luaText)){
         luaText = fs.readFileSync(luaText).toString();
     }
     var result = lex.getTree(luaText);
-    fs.writeFile("testoutput.json", JSON.stringify(result, null, 4), function(err) {
+    fs.writeFile(filename.concat("_output.json"), JSON.stringify(result, null, 4), function(err){
         if(err) {
             console.log(err);
         } else {

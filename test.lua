@@ -72,3 +72,17 @@ if 9 ~= 9 then
 else
  test2 = "OK"
 end
+
+tot = 0;
+
+function special_test(n)
+  if n == 1000 then
+    return;
+  elseif n%3 == 0 or n%5 == 0 then
+    tot = tot + n;
+  end
+  test(n+1)
+  return;
+end
+
+special_test(1);
